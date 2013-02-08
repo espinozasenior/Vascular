@@ -165,6 +165,20 @@ li
 	border-bottom: 1px solid gray;
 }
 
+
+#list-idiomas{padding:10px 20px;}
+#list-idiomas ul{display:block;background:#fff;border:1px solid #adadad;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+   list-style:none;
+    padding-left: 0px;
+}
+#list-idiomas ul li{padding:10px 15px;border-top:1px solid #adadad;}
+#list-idiomas ul li:first-child{border:0;}
+#list-idiomas ul li:hover{background:#eee;}
+#list-idiomas ul li span{color:blue;float:right;font-weight:bold;}
+
 .arrow
 {
 	float: right;

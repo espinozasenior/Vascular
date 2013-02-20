@@ -50,11 +50,11 @@
 		margin-right: 5%;
 	}
     
-    #somiza-fixed{
-        position: absolute;
-        bottom: 10%;
-
-    }
+	#somiza-fixed
+	{
+		position: absolute;
+		bottom: 10%;
+	}
 }
 
 /*----Androids----*/
@@ -166,18 +166,19 @@ li
 }
 
 
-#list-idiomas{padding:10px 20px;}
-#list-idiomas ul{display:block;background:#fff;border:1px solid #adadad;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-border-radius: 5px;
-   list-style:none;
-    padding-left: 0px;
+#list-idiomas ul
+{
+	display: block; background: #fff; border: 1px solid #adadad;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	list-style: none;
+	padding: 0px;
 }
-#list-idiomas ul li{padding:10px 15px;border-top:1px solid #adadad;}
-#list-idiomas ul li:first-child{border:0;}
-#list-idiomas ul li:hover{background:#eee;}
-#list-idiomas ul li span{color:blue;float:right;font-weight:bold;}
+#list-idiomas ul li { padding: 10px 15px; border-top: 1px solid #adadad; }
+#list-idiomas ul li:first-child { border: 0; }
+#list-idiomas ul li:hover { background: #eee; }
+#list-idiomas ul li span { float: right; }
 
 .arrow
 {
@@ -243,7 +244,6 @@ border-radius: 5px;
 {
 	margin: 0;
 	padding: 3px 0pt 3px 16px;
-    
 }
 
 .treeview a.selected
@@ -264,7 +264,6 @@ border-radius: 5px;
 .treeview li.lastExpandable { background-position: -32px -67px }
 
 .treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
-
 
 .treeview .placeholder
 {
@@ -304,7 +303,6 @@ border-radius: 5px;
 	cursor: default; /* or no-drop */
 	opacity: .6;
 }
-
 
 .css-treeview label::before
 {
@@ -438,10 +436,9 @@ border-radius: 5px;
 	height: 100%;
 	text-align: justify;
     
-    -moz-user-select: text;
+	-moz-user-select: text;
 	-webkit-user-select: text;
 	user-select: text;
-        
 }
 
 .km-android .km-view .km-content .km-listgroupinset .km-group-title .km-text

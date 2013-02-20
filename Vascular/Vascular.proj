@@ -61,6 +61,8 @@
     <Content Include="images\closeBtn.png" />
     <Content Include="images\logo.png" />
     <Content Include="kendo\styles\images\.nomedia" />
+    <Content Include="kendo\styles\images\Boton-Off.png" />
+    <Content Include="kendo\styles\images\Boton-On.png" />
     <Content Include="kendo\styles\images\icon-anexo-1.png" />
     <Content Include="kendo\styles\images\icon-anexo-2.png" />
     <Content Include="kendo\styles\images\icon-favorito-1.png" />

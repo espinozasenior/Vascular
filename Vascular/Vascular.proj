@@ -97,6 +97,8 @@
     <Content Include="styles\images\tables\12.png" />
     <Content Include="styles\images\tables\13.png" />
     <Content Include="styles\images\tables\14.png" />
+    <Content Include="styles\images\tables\15.png" />
+    <Content Include="styles\images\tables\16.png" />
     <Content Include="styles\images\wallpaper.png" />
     <Content Include="index.html" />
     <Content Include="kendo\js\jquery.min.js" />

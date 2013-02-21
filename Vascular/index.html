@@ -541,10 +541,22 @@
 				</div>
 			</div>
 
-			<input id="cajaTexto" type="search" value="search" />
+			<input id="cajaTexto" type="search" value="" />
 			<a data-click="resaltarTexto" id="modalview-login-button" data-role="button">Cercar</a>
 		</div>
+        
+        <div data-role="modalview" id="modalview-resalto" style="width: 95%; height: 80px; text-align: center;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<span>Buscar</span>
+					<a data-click="closeModalViewResalto" data-role="button" data-align="right">Tancar</a>
+				</div>
+			</div>
 
+			<input id="cajaTextoR" type="search" value="" />
+			<a id="modalview-resalto-button" data-role="button">Cercar</a>
+		</div>                            
+                            
 		<div data-role="layout" data-id="layout">
 			<header data-role="header">
 				<div data-role="navbar">
@@ -11804,7 +11816,7 @@
 						<h4 style="margin-left: 2%;">3.5.6. Tractament preventiu</h4>
 						<div id="tools">
 							<a data-role="button"  onclick="addFavorito('#3-5-6', 'Tractament preventiu');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" data-click="highlightSelectedText" data-align="right">T</a>
+							<a data-role="button" onclick="highlightSelectedText('#3-5-6');" data-align="right">T</a>
 							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
 							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
 						</div>
@@ -11944,12 +11956,16 @@
 			
             			
 			function initial() {
-				ind = 1;
-				db = openDatabase("favoritos", "0.1", "Base de datos de apartados favoritos", 200000);
+				
+				db = openDatabase("favoritos", "0.1", "Base de datos la app vascular", 200000);
 				if (db) {
 					// Database opened
 					db.transaction(function(tx) {
 						tx.executeSql("CREATE TABLE IF NOT EXISTS favoritos(indice text primary key , nombre text)")
+					});
+
+                    db.transaction(function(tx) {
+						tx.executeSql("CREATE TABLE IF NOT EXISTS highlight(indice text primary key , contenido text)")
 					});
 				}
 				listfavoritos();
@@ -11999,7 +12015,29 @@
 				var elem = $(this).attr("id");
 				removeFavorito(elem);
 			});
-			
+            
+            function addhighlight(indice, contenido) {
+				db.transaction(function(tx) {
+					tx.executeSql("INSERT INTO highlight(indice, contenido) VALUES(?,?)", [indice, contenido]);
+				});
+				
+			}                        
+                        
+            function highlightSelectedText(id){
+                 var lugar = id + " .lectura";
+                 $("#modalview-resalto").kendoMobileModalView("open");
+                 $("#modalview-resalto-button").click(function(){
+                        $(lugar).resaltar(cajaTextoR.value, "highlight");
+                        
+                        $(".resaltarTexto").each(function() {
+		                    $(this).removeClass('resaltarTexto');
+	                    });                       
+                        
+                   });
+                        
+                  addhighlight(id, $(lugar).html());
+			}
+                        
 			function restarFavorito() {
 				$("#dltbtnfv").css({ background: "#EC0C3C" });
 				$("#dltbtnfv").removeClass("ocupado");

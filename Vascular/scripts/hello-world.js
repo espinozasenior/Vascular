@@ -13,6 +13,7 @@ function onConfirm(button) {
 		}, 2000);
 	}
 	else {
+        
 		navigator.app.exitApp();
 	}
 }
@@ -85,6 +86,9 @@ function closeModalViewSearch() {
 }
 function closeModalViewAnexos() {
 	$("#modalview-anexos").kendoMobileModalView("close");
+}
+function closeModalViewResalto() {
+	$("#modalview-resalto").kendoMobileModalView("close");
 }
 
 //Resaltar texto buscado

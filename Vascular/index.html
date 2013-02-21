@@ -11956,7 +11956,6 @@
 			
             			
 			function initial() {
-				
 				db = openDatabase("favoritos", "0.1", "Base de datos la app vascular", 200000);
 				if (db) {
 					// Database opened
@@ -11969,6 +11968,8 @@
 					});
 				}
 				listfavoritos();
+                //dropresalto();
+                listHighlight();
 			}
 			
 			function showUsers(users) {
@@ -12010,32 +12011,77 @@
 				})
 				listfavoritos();
 			} 
+                        
+            function dropresalto() {
+				db.transaction(function(tx) {
+					tx.executeSql("DROP TABLE 'highlight'");
+				});
+			}
+                        
+            function update_resalto(indice, contenido){
+                db.transaction(function(tx) {
+					tx.executeSql("UPDATE highlight SET contenido='"+[contenido]+"' WHERE indice='"+[indice]+"'");
+				});
+            }                        
 			
 			$(".eliminables").live("click", function(e) {
 				var elem = $(this).attr("id");
 				removeFavorito(elem);
 			});
+                        
+            $(".highlight").live("click", function(e) {
+			    $(this).contents().unwrap();
+                var ind = $(this).attr("data");
+                var lugar = ind + " .lectura";
+                var content = $(lugar).html(); 
+                update_resalto(ind, content);
+			});            
             
+            function showHighlight(users) {
+				
+				for (var i = 0; i < users.length; i++) {
+                    var lugar = users[i][0]+ " .lectura";    
+					$(lugar).html(users[i][1]);
+				}
+			}
+			
+			function listHighlight() {
+				db.transaction(function(tx) {
+					tx.executeSql("SELECT * FROM highlight", [],
+								  function(tx, result) {
+									  var output = [];
+									  for (var i = 0; i < result.rows.length; i++) {
+										  output.push([
+											  result.rows.item(i)['indice'],
+											  result.rows.item(i)['contenido']
+										  ]);
+									  }
+			
+									  showHighlight(output);
+								  });
+				});
+			}            
+                        
             function addhighlight(indice, contenido) {
 				db.transaction(function(tx) {
 					tx.executeSql("INSERT INTO highlight(indice, contenido) VALUES(?,?)", [indice, contenido]);
 				});
 				
 			}                        
-                        
+              
+                   
             function highlightSelectedText(id){
                  var lugar = id + " .lectura";
                  $("#modalview-resalto").kendoMobileModalView("open");
                  $("#modalview-resalto-button").click(function(){
-                        $(lugar).resaltar(cajaTextoR.value, "highlight");
-                        
+                        $(lugar).resaltar(cajaTextoR.value, "highlight", id);
                         $(".resaltarTexto").each(function() {
 		                    $(this).removeClass('resaltarTexto');
-	                    });                       
+	                    });
                         
-                   });
-                        
-                  addhighlight(id, $(lugar).html());
+                        addhighlight(id, $(lugar).html());
+                   });  
+                  
 			}
                         
 			function restarFavorito() {

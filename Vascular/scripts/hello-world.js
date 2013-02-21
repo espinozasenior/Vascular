@@ -115,6 +115,17 @@ jQuery.fn.extend({
     }
 });
 
+jQuery.fn.extend({
+    resaltar: function(busqueda, claseCSSbusqueda, id){
+        var regex = new RegExp("(<[^>]*>)|("+ busqueda.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', 'ig');
+        var nuevoHtml=this.html(this.html().replace(regex, function(a, b, c){
+            return (a.charAt(0) == "<") ? a : "<span class=\""+ claseCSSbusqueda +"\" data=\""+ id +"\">" + c + "</span>";
+        }));
+        console.log("html: "+nuevoHtml);
+        return nuevoHtml;
+    }
+});
+
 
 // Resetear al tamaño original
 var originalFontSize = $('html').css('font-size');

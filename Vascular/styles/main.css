@@ -425,6 +425,18 @@ padding:0.5%;
     
 }
 
+.eliminables:before{
+     content: url('images/no-selected.png');
+	padding-right:0.5%;
+	padding-top:0.5%;
+        }
+        
+.eliminables-selected:before{
+        content: url('images/selected.png');
+		padding-right:0.5%;
+		padding-top:0.5%;
+  }
+
 .clicked
 {
 	background-color: #FFBABA; 

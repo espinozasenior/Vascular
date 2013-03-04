@@ -67,7 +67,7 @@ function fail(error) {
 	}
   
 	$(function () {
-		filterList($("#headeranexos"), $("#list"));
+		filterList($("#headeranexos"), $("#list-anexos"));
 	});
 }(jQuery));
 

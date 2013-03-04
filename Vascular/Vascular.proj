@@ -101,6 +101,8 @@
     <Content Include="styles\images\ferrer.png" />
     <Content Include="styles\images\icons.png" />
     <Content Include="styles\images\logo_sociedad.png" />
+    <Content Include="styles\images\no-selected.png" />
+    <Content Include="styles\images\selected.png" />
     <Content Include="styles\images\somazina.png" />
     <Content Include="styles\images\tables\.nomedia" />
     <Content Include="styles\images\tables\01.png" />

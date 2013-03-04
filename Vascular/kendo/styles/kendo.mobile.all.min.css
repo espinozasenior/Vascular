@@ -1830,12 +1830,3 @@ body:after {
   border:none;
   cursor: pointer;
 }
-
-.eliminables:before{
-        content: url('images/no-selected.png');
-            
-        }
-        
-.eliminables-selected:before{
-        content: url('images/selected.gif');
-  }

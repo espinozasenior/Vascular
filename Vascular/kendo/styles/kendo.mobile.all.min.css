@@ -1746,15 +1746,8 @@ body:after {
     padding-bottom: 0px !important;
     padding-left: 0px !important;
 	border-color: rgba(0,0,0,-1.6) !important;
-	margin-right: -11% !important;
+	margin-right: -12% !important;
 }
-
-#boton_favorito{
-    margin-right: -15%;
-}
-
-#boton_marcador{
-    margin-right: -5%;
 
 .BotonMas:active{
 	background: url('images/ico-mas-3.png') no-repeat !important;
@@ -1770,11 +1763,11 @@ body:after {
     padding-left: 0px !important;
 	margin-right: 0px !important;
 	border-color: rgba(0,0,0,-1.6) !important;
-	margin-right: -11% !important;
+	margin-right: -12% !important;
 }
 
 .BotonMenor{
-	background: url('images/ico-menos.png') no-repeat !important;
+	background: url('images/ico-menor.png') no-repeat !important;
 	height: 31px;
 	width: 48px;
 	cursor: pointer;
@@ -1806,6 +1799,15 @@ body:after {
 	margin-left:0px !important;
 	border-color: rgba(0,0,0,-1.6) !important;
 }
+
+#boton_favorito{
+    margin-right: -15%;
+}
+
+#boton_marcador{
+    margin-right: -5%;
+
+
 
 .boton-back{
   

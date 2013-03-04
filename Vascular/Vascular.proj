@@ -87,9 +87,6 @@
     <Content Include="kendo\styles\images\icono-marcador.png" />
     <Content Include="kendo\styles\images\icono-mas.png" />
     <Content Include="kendo\styles\images\iconoLupa.png" />
-    <Content Include="no-selected.gif" />
-    <Content Include="kendo\styles\images\no-selected.png" />
-    <Content Include="kendo\styles\images\selected.gif" />
     <Content Include="scripts\core.js" />
     <Content Include="scripts\jquery.atooltip.js" />
     <Content Include="scripts\jquery.treeview.js" />

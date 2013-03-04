@@ -16,7 +16,7 @@
 		<link href="styles/main.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div id="somiza-fixed"class="bottom" style="text-align: center;">
+        <div id="somiza-fixed"class="bottom" style="text-align: center; display:none;">
 			<img src="styles/images/somazina.png">
 		</div>
 		<div data-role="view" id="tabstrip-home" data-title="">
@@ -334,24 +334,7 @@
 				<h3>
 					Ferrer Internacional, S.A.
 				</h3>
-				<p>
-					<b>&copy; 2013 MEDERIC EDICIONES, S.L.</b><br>
-					<span>(PARA TODAS LOS IDIOMAS)</span><br>
-					<span>CARRER DE MUNT, 41</span><br>
-					<span>08392 SANT ANDREU DE LLAVANERES (ESPAÑA)</span><br>
-					<span>www.medericediciones.com</span><br>
-					<span>&nbsp;</span>
-				</p>
-
-				<p>
-					<span><b>Reservados todos los derechos.</b></span><br>
-					El contenido de esta publicación no puede ser reproducido, ni transmitido por nigún procedimiento electrónico o mecánico, incluyendo fotocopia o grabación magnética, ni registrado por ningún medio, sin la previa autorización por escrito del titular de los derechos de explotación.
-				</p>
-				<p>
-					Méderic Ediciones, S.L. y sus asociados no asumen responsabilidad alguna por cualquier lesión y/o daño sufridos por personas o bienes en cuestiones de responsabilidad de productos, negligencias o cualquier otra, ni por uso o aplicación de métodos, productos, instrucciones o ideas contenidos en el presente material. Dados los rápidos avances que se producen en las ciencias médicas en particular, debe realizarse una verificación independiente de los diagnosticos y las posologías de.
-				</p>
-				<span>&nbsp;</span>
-				<div style="text-align: center;">
+                <div style="text-align: center;">
 					<p>
 						<b>Coordinadors</b><br><br>
 						Jerzy Krupinski<br>
@@ -390,6 +373,24 @@
 					</p>
 
 				</div>
+				<p>
+					<b>&copy; 2013 MEDERIC EDICIONES, S.L.</b><br>
+					<span>(PARA TODAS LOS IDIOMAS)</span><br>
+					<span>CARRER DE MUNT, 41</span><br>
+					<span>08392 SANT ANDREU DE LLAVANERES (ESPAÑA)</span><br>
+					<span>www.medericediciones.com</span><br>
+					<span>&nbsp;</span>
+				</p>
+
+				<p>
+					<span><b>Reservados todos los derechos.</b></span><br>
+					El contenido de esta publicación no puede ser reproducido, ni transmitido por nigún procedimiento electrónico o mecánico, incluyendo fotocopia o grabación magnética, ni registrado por ningún medio, sin la previa autorización por escrito del titular de los derechos de explotación.
+				</p>
+				<p>
+					Méderic Ediciones, S.L. y sus asociados no asumen responsabilidad alguna por cualquier lesión y/o daño sufridos por personas o bienes en cuestiones de responsabilidad de productos, negligencias o cualquier otra, ni por uso o aplicación de métodos, productos, instrucciones o ideas contenidos en el presente material. Dados los rápidos avances que se producen en las ciencias médicas en particular, debe realizarse una verificación independiente de los diagnosticos y las posologías de.
+				</p>
+				<span>&nbsp;</span>
+				
 			</div>
 		</div>
 
@@ -434,10 +435,10 @@
 						<a href="#A9">Gastroprotecció en l’ictus </a>
 					</li>
 					<li>
-						<a href="#/luxembourg/">Altres fàrmacs </a>
+						<a href="#A10">Altres fàrmacs </a>
 					</li>
 					<li>
-						<a href="#/mexico/">Fàrmacs. noms comercials i genèrics </a>
+						<a href="#A11">Fàrmacs. noms comercials i genèrics </a>
 					</li>
 
 				</ul>
@@ -482,6 +483,11 @@
 			<ul data-role="listview" id="div-list-favoritos" style="color: #333333;font-family: HelveticaNeue; text-align: center;">
 
 			</ul>
+            <footer data-role="footer" id="rectangulo-eliminar" style="display:none;">
+              <button id="boton-eliminar">
+                  ELIMINAR
+                </button>
+            </footer>
 		</div>
 
 		<div data-role="modalview" id="modalview-anexos" style="width: 95%; height: auto;">
@@ -506,28 +512,28 @@
 						<a href="#A3/">Antihipertensius</a>
 					</li>
 					<li>
-						<a href="#/brazil/">Febre en la fase aguda de l’ictus </a>
+						<a href="#A4">Febre en la fase aguda de l’ictus </a>
 					</li>
 					<li>
-						<a href="#/canada/">Maneig de la hiperglicèmia </a>
+						<a href="#A5">Maneig de la hiperglicèmia </a>
 					</li>
 					<li>
-						<a href="#/ireland/">Anticoagulants </a>
+						<a href="#A6">Anticoagulants </a>
 					</li>
 					<li>
-						<a href="#/israel/">Antiagregants plaquetaris </a>
+						<a href="#A7">Antiagregants plaquetaris </a>
 					</li>
 					<li>
-						<a href="#/italy/">Estatines</a>
+						<a href="#A8">Estatines</a>
 					</li>
 					<li>
-						<a href="#/japan/">Gastroprotecció en l’ictus </a>
+						<a href="#A9">Gastroprotecció en l’ictus </a>
 					</li>
 					<li>
-						<a href="#/luxembourg/">Altres fàrmacs </a>
+						<a href="#A10">Altres fàrmacs </a>
 					</li>
 					<li>
-						<a href="#/mexico/">Fàrmacs. noms comercials i genèrics </a>
+						<a href="#A11">Fàrmacs. noms comercials i genèrics </a>
 					</li>
 				</ul>
 			</div>
@@ -6186,30 +6192,40 @@
 		</div>
 		<!--   --------------------------  LIBRO ---------------  -->
 
-		<div data-role="view" id="1-1" class="contenido" data-title="Ictus isquèmic" data-transition="slide">
+		<div data-role="view" id="1-1" class="contenido" data-init="changetowhite" data-title="Ictus isquèmic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
 						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexos">anexo</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.1. Introducció. Dades epidemiològiques</h4>
-						<div id="tools">
-							<a data-role="button" onclick="addFavorito('#1-1', 'Introducció. Dades epidemiològiques');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;" height:100%;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.1. Introducció. Dades epidemiològiques</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" width="50%">
+                                      <div id="boton_favorito" style="display:inline-block"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador" style="display:inline-block"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <ul data-role="buttongroup" data-index="0" style="margin-right:-20%;">
+                                        <a data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></a>
+							            <a data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></a>
+                                      </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
-
+			<div class="buscar-content" style="padding:4px; display:none;"><input style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura" id="l11" data-role="touch">
 				<p>
 					<span>Les malalties vasculars cerebrals (MVC)
@@ -6235,7 +6251,7 @@
 					<span >&nbsp;</span>
 				</p>
 			</div>
-			<footer>
+			<footer data-role="footer">
 				<div data-role="navbar">
 					<span> 1/45 </span>
 				</div>
@@ -12040,7 +12056,7 @@
 				<p>
 					<b>
 						<u>
-							<span style="color:black" ><span style="text-decoration:none">&nbsp;</span></span>
+							<span style="color:black"><span style="text-decoration:none">&nbsp;</span></span>
 						</u>
 					</b>
 				</p>
@@ -12048,7 +12064,7 @@
 				<p>
 					<b>
 						<u>
-							<span style="color:black" >És pot monitoritzar si hi ha efecte anticoagulant per rivaroxaban?</span>
+							<span style="color:black">És pot monitoritzar si hi ha efecte anticoagulant per rivaroxaban?</span>
 						</u>
 					</b>
 				</p>
@@ -12280,6 +12296,17 @@
 				</div>
 			</footer>
 		</div>
+		<div class="popup">
+<div data-role="navbar">
+					<span data-role="view-title">
+						<a data-role="backbutton" data-align="left">Enrere</a>
+					</span>
+				</div>
+<div class="into-tip">
+ <div><input style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
+ <div><ul><li>fdsfsd</li></ul></div>
+</div>
+</div>
 		<!--   -------------------------- FIN LIBRO -------------  -->
 
 		<script>
@@ -12294,6 +12321,7 @@
 			
             			
 			function initial() {
+			changetored();
 				db = openDatabase("favoritos", "0.1", "Base de datos la app vascular", 200000);
 				if (db) {
 					// Database opened
@@ -12360,11 +12388,50 @@
                 db.transaction(function(tx) {
 					tx.executeSql("UPDATE highlight SET contenido='"+[contenido]+"' WHERE indice='"+[indice]+"'");
 				});
-            }                        
+            }   
 			
-			$(".eliminables").live("click", function(e) {
-				var elem = $(this).attr("id");
-				removeFavorito(elem);
+			var windowWidth = document.documentElement.clientWidth; //retrieve current window width
+			var windowHeight = $(window).height();
+
+			if(windowWidth < 560){
+				var puntos = "...";
+				var string;
+				$(".contenido").each(function(){
+					string = $(".contenido").attr("data-title");
+						if(string.length >= 12){
+							string = string.substr(0,11);
+							string = string.concat(puntos);
+							$(this).attr("data-title", string);
+						}
+				});
+		
+			}  
+			
+			function togglebuscar(){
+				if($(".buscar-content").css("display") == "none"){
+					$(".buscar-content").css("display", "block");
+					$(".titulo").css("display", "none");
+					$(this < header).css("display", "none");
+				}else{
+					$(".buscar-content").css("display", "none");				
+					$(".titulo").css("display", "block");
+					$(this < header).css("display", "block");
+				}
+									
+			}                   
+			
+            $(".eliminables").live("click", function(e) {
+				var elem = $(this).addClass("eliminables-selected");
+			});        
+                    
+			$("#boton-eliminar").live("click", function(e) {
+                    $("#div-list-favoritos li").each(function(){
+                    if($(this).hasClass("eliminables-selected")){
+                        var elem = $(this).attr("id");
+				        removeFavorito(elem);
+                    }
+                    });
+                    listfavoritos();				
 			});
                         
             $(".highlight").live("click", function(e) {
@@ -12407,7 +12474,10 @@
 				
 			}                        
               
-                   
+            function showtooltip(){
+				$(".popup").css("display", "block");
+			}
+			       
             function highlightSelectedText(id){
                  var lugar = id + " .lectura";
                  $("#modalview-resalto").kendoMobileModalView("open");
@@ -12437,16 +12507,25 @@
 					listfavoritos();
 					$("#dltbtnfv").css({ background: "#EC0C3C" });
 					$("#dltbtnfv").removeClass("ocupado");
+                     $("#rectangulo-eliminar").css("display", "none");
 					/* $("#div-list-favoritos > li").removeClass("eliminables");  */
 				}
 				else {
 					$("#dltbtnfv").css({ background: "#570618" });   
 					$("#dltbtnfv").addClass("ocupado");
 					$("#div-list-favoritos > li").addClass("eliminables");  
-			
+			        $("#rectangulo-eliminar").css("display", "block");
 					$("#div-list-favoritos > li").attr("onclick", " ");
 				}
 			}
+			
+			function changetowhite (){
+				$(".km-ios, .km-ios .km-content").css('background','white');
+			}
+			function changetored (){
+				$(".km-ios, .km-ios .km-content").css('background','#BD072F');
+			}
+			
 			// JavaScript Document
 			$('#cajaTexto').click(function() {
 				$(this).select();
@@ -12465,6 +12544,20 @@
 					tipContent: '<a href="#' + i + '">Ir</a>'
 				});
 			} 
+			
+			$("#boton_marcador img").toggle(function(){
+			   $(this).attr('src',"kendo/styles/images/icon-marcador-down.png");
+			   highlightSelectedText('#1-1');	
+			}, function(){
+				$(this).attr('src',"kendo/styles/images/icon-marcador.png");
+			});
+			
+			$("#boton_favorito img").toggle(function(){
+			   $(this).attr('src',"kendo/styles/images/icon-favorito-3.png");
+			   addFavorito('#1-1', 'Introducció. Dades epidemiològiques');
+			}, function(){
+				$(this).attr('src',"kendo/styles/images/icon-favorito.png");
+			});
 			
 			$$('#l11').swipeRight(function() {
 				app.navigate("#indice");

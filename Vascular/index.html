@@ -6208,13 +6208,17 @@
                             <tr>
                             	<td width="50%"><h4 style="margin-left: 2%;">1.1. Introducció. Dades epidemiològiques</h4></td>
                             	<td width="50%">
-                            		<div id="tools" width="50%">
-                                      <div id="boton_favorito" style="display:inline-block"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
-							          <div id="boton_marcador" style="display:inline-block"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
-                                       <ul data-role="buttongroup" data-index="0" style="margin-right:-20%;">
-                                        <a data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></a>
-							            <a data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></a>
-                                      </ul>
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float:left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
 						            </div>
                             	</td>
                             </tr>
@@ -12296,17 +12300,51 @@
 				</div>
 			</footer>
 		</div>
-		<div class="popup">
-<div data-role="navbar">
-					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-					</span>
-				</div>
-<div class="into-tip">
- <div><input style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
- <div><ul><li>fdsfsd</li></ul></div>
-</div>
-</div>
+		<div data-role="view" id="hola" class="popup tooltip" data-layout="layout" data-title="Annexos" data-show="layoutShow" style="display: block;">
+			<header style="text-align:center; margin-bottom:5%;" data-role="header">
+<img style="float:left; position:absolute;" src="kendo/styles/images/back-boton.png" class="boton-back" data-align="left" onclick="function(){$("#hola").css("display", "none");}"> 
+				<h3 style="font-family: Myriad Pro;color: #fff;text-shadow: 1px 1px rgba(0,0,0,.75);margin-top:0%;">ANNEXOS</h3>					
+			</header>
+			<div class="div-into-input"><input style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
+			<div class="into-tip" data-role="touch">
+			
+				<div id="list-popup"><ul data-role="listview" data-style="inset">
+					<li>
+						<a href="#A1">Trombolítics</a>
+					</li>
+					<li>
+						<a href="#A2/">Neuroprotectors </a>
+					</li>
+					<li>
+						<a href="#A3/">Antihipertensius</a>
+					</li>
+					<li>
+						<a href="#A4">Febre en la fase aguda de l’ictus </a>
+					</li>
+					<li>
+						<a href="#A5">Maneig de la hiperglicèmia </a>
+					</li>
+					<li>
+						<a href="#A6">Anticoagulants </a>
+					</li>
+					<li>
+						<a href="#A7">Antiagregants plaquetaris </a>
+					</li>
+					<li>
+						<a href="#A8">Estatines</a>
+					</li>
+					<li>
+						<a href="#/japan/">Gastroprotecció en l’ictus </a>
+					</li>
+					<li>
+						<a href="#/luxembourg/">Altres fàrmacs </a>
+					</li>
+					<li>
+						<a href="#/mexico/">Fàrmacs. noms comercials i genèrics </a>
+					</li>
+				</ul></div>
+			</div>
+		</div>
 		<!--   -------------------------- FIN LIBRO -------------  -->
 
 		<script>
@@ -12506,12 +12544,14 @@
 				if ($("#dltbtnfv").hasClass("ocupado")) {
 					listfavoritos();
 					$("#dltbtnfv").css({ background: "#EC0C3C" });
+                    $("#dltbtnfv span").html("ELIMINAR");
 					$("#dltbtnfv").removeClass("ocupado");
                      $("#rectangulo-eliminar").css("display", "none");
 					/* $("#div-list-favoritos > li").removeClass("eliminables");  */
 				}
 				else {
-					$("#dltbtnfv").css({ background: "#570618" });   
+					$("#dltbtnfv").css({ background: "#570618" });
+                    $("#dltbtnfv span").html("CANCEL");
 					$("#dltbtnfv").addClass("ocupado");
 					$("#div-list-favoritos > li").addClass("eliminables");  
 			        $("#rectangulo-eliminar").css("display", "block");
@@ -12971,7 +13011,13 @@
 			});
 			$$('#m356').doubleTap(function() {
 				app.navigate('#3-5-6');
-			});           
+			});     
+                    
+             $(document).keydown(function(tecla){
+                if (tecla.keyCode == 13) { 
+                    alert("sdfsadfdsf");
+                }
+            });                    
 		</script>
 
 	</body>

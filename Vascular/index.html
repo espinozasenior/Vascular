@@ -612,16 +612,16 @@
 			<div ontouchstart="" data-role="touch" id="list-idiomas">
 				<ul data-role="listview" data-style="inset">
 					<li>
-						Catalán<span><img src="kendo/styles/images/Boton-On.png" style="width:62%" ></span>
+						CATALÁN<span><img src="kendo/styles/images/Boton-On.png" style="width:62%" ></span>
 					</li>
 					<li>
-						Español<span><img src="kendo/styles/images/Boton-Off.png"  style="width:60%"></span>
+						ESPAÑOL<span><img src="kendo/styles/images/Boton-Off.png"  style="width:60%"></span>
 					</li>
 					<li>
-						Inglés<span><img src="kendo/styles/images/Boton-Off.png" style="width:60%"></span>
+						INGLÉS<span><img src="kendo/styles/images/Boton-Off.png" style="width:60%"></span>
 					</li>
 					<li>
-						Polaco<span><img src="kendo/styles/images/Boton-Off.png" style="width:60%" ></span>
+						POLACO<span><img src="kendo/styles/images/Boton-Off.png" style="width:60%" ></span>
 					</li>
 				</ul>
 			</div>
@@ -6365,32 +6365,50 @@
 			</div>
 			<footer data-role="footer">
 				<div data-role="navbar">
-					<span> 1/45 </span>
+					<span>
+                         <button onclick="app.navigate('#indice');" class="BotonPrev">&nbsp;</button>
+                        
+                         <button onclick="app.navigate('#1-2');" class="BotonNext">&nbsp;</button>
+                    </span>
 				</div>
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-2" class="contenido" data-title="Ictus isquèmic" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-2" class="contenido" data-init="changetowhite" data-title="Ictus isquèmic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.2. Definicions</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-2', 'Definicions');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.2. Definicions</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>						
 					</div>
 				</div>
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l12" data-role="touch">
 				<p>
 					<b><span>Ictus:</span></b><span> L’Organització Mundial de la Salut (OMS) defineix <i>l’ictus o feridura</i> com
@@ -6415,29 +6433,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-2-1" class="contenido" data-title="Deﬁnitions" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-2-1" class="contenido" data-init="changetowhite" data-title="Ictus isquèmic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.2.1. Classificacions de l’ictus isquèmic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-2-1', 'Classificacions de l’ictus isquèmic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-2-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.2.1. Classificacions de l’ictus isquèmic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l121" data-role="touch">
 				<p>
 					<b><span style='color:gray; font-size: 120%;'>Segons l’etiologia</span></b><span> (es desenvolupa més endavant)</span>
@@ -6700,28 +6733,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-3-1" class="contenido" data-title="Etiologia" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-3-1" class="contenido" data-init="changetowhite" data-title="Etiologia" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.3.1.	Patofisiologia</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-3-1', 'Patofisiologia');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-3-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.3.1.	Patofisiologia</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
+
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l131" data-role="touch">
 				<p>
 					<span>El mecanisme fisiopatològic de l’infart
@@ -6743,28 +6792,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-3-2" class="contenido" data-title="Etiologia" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-3-2" class="contenido" data-init="changetowhite" data-title="Etiologia" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.3.2. Factors de risc</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-3-2', 'Factors de risc');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-3-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.3.2. Factors de risc</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
+
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l132" data-role="touch">
 				<p>
 					<span>L’etiologia de l’ictus, així com l’infart
@@ -6931,28 +6996,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-3-3" class="contenido" data-title="Etiologia" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-3-3" class="contenido" data-init="changetowhite" data-title="Etiologia" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.3.3.	Classificació etiològica de l’ictus</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-3-3', 'Classificació etiològica de l’ictus');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-3-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.3.3.	Classificació etiològica de l’ictus</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
+
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l133" data-role="touch">
 				<p>
 					<span>Classificació adaptada del Laussane Stroke Registry (Bogousslavsky, 1997) i de la guia de diag-nòstic i tractament
@@ -7059,28 +7140,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-4" class="contenido" data-title="Ictus isquèmic" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-4" class="contenido" data-init="changetowhite" data-title="Ictus isquèmic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.4. Diagnòstic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-4', 'Diagnòstic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.4. Diagnòstic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
+
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l14" data-role="touch">
 				<p>
 					<span>El diagnòstic de l’infart cerebral ha de
@@ -7099,29 +7196,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-4-1" class="contenido" data-title="Diagnòstic" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-4-1" class="contenido" data-init="changetowhite" data-title="Diagnòstic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.4.1	Diagnòstic clínic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-4-1', 'Diagnòstic clínic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-4-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.4.1	Diagnòstic clínic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l141" data-role="touch">
 				<p>
 					<span>Cal sospitar l’existència d’un infart
@@ -7138,29 +7250,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-4-2" class="contenido" data-title="Diagnòstic" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-4-2" class="contenido" data-init="changetowhite" data-title="Diagnòstic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.4.2	Criteris diagnòstics </h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-4-2', 'Criteris diagnòstics');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-4-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.4.2	Criteris diagnòstics</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l142" data-role="touch">
 				<p>
 					<span>El procés diagnòstic en pacients amb
@@ -7200,29 +7327,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-4-3" class="contenido" data-title="Diagnòstic" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-4-3" class="contenido" data-init="changetowhite" data-title="Diagnòstic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.4.3 Diagnòstic diferencial</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-4-3', 'Diagnòstic diferencial');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-4-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.4.3 Diagnòstic diferencial</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l143" data-role="touch">
 				<p>
 					<span>La semiologia clínica detallada i les
@@ -7331,29 +7473,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-1" class="contenido" data-title="Exploracions complementàries" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-1" class="contenido" data-init="changetowhite" data-title="Exploracions complementàries" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.1	Exàmens de laboratori</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-1', 'Exàmens de laboratori');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.1	Exàmens de laboratori</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l151" data-role="touch">
 				<p>
 					<b><span style='color:gray; font-size:120%;'>Analítica urgent</span></b>
@@ -7482,29 +7639,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-2" class="contenido" data-title="Exploracions complementàries" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-2" class="contenido" data-init="changetowhite" data-title="Exploracions complementàries" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.2	Estudis histològics</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-2', 'Estudis histològics');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.2	Estudis histològics</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l152" data-role="touch">
 				<p>
 					<span>Estan indicats en cas de sospita
@@ -7556,29 +7728,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-3" class="contenido" data-title="Exploracions complementàries" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-3" class="contenido" data-init="changetowhite" data-title="Exploracions complementàries" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.3	Estudi genètic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-3', 'Estudi genètic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.3	Estudi genètic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l153" data-role="touch">
 				<p>
 					<span>Està indicat en casos d’història familiar
@@ -7622,29 +7809,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-4" class="contenido" data-title="Exploracions complementàries" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-4" class="contenido" data-init="changetowhite" data-title="Exploracions complementàries" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.4	Anàlisis del líquid cefalorraquidi </h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-4', 'Anàlisis del líquid cefalorraquidi');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.4	Anàlisis del líquid cefalorraquidi</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l154" data-role="touch">
 				<p>
 					<span>L’estudi del líquid cefaloraquidi (LCR)
@@ -7670,29 +7872,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-5" class="contenido" data-title="Exploracions complementàries" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-5" class="contenido" data-init="changetowhite" data-title="Exploracions complementàries" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.5. Radiografia de tòrax</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-5', 'Radiografia de tòrax');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-5');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.5. Radiografia de tòrax</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l155" data-role="touch">
 				<p>
 					<span>S’ha de realitzar a tots els pacients,
@@ -7712,29 +7929,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-6" class="contenido" data-title="Estudi d’imatge cranial" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-6" class="contenido" data-init="changetowhite" data-title="Estudi d’imatge cranial" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.6. Estudi d’imatge cranial</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-6', 'Estudi d’imatge cranial');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-6');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.6. Estudi d’imatge cranial</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l156" data-role="touch">
 				<p>
 					<span>S’ha de realitzar a tots els pacients amb
@@ -7929,29 +8161,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-7" class="contenido" data-title="Estudi d’imatge cranial" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-7" class="contenido" data-init="changetowhite" data-title="Estudi d’imatge cranial" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.7. Estudis angiogràfics craniocervicals en l’ictus</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-7', 'Estudis angiogràfics craniocervicals en l’ictus');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-7');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.7. Estudis angiogràfics craniocervicals en l’ictus</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l157" data-role="touch">
 				<p>
 					<span>En l’actualitat, la tècnica angiogràfica
@@ -8067,29 +8314,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-5-8" class="contenido" data-title="Estudi d’imatge cranial" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-8" class="contenido" data-init="changetowhite" data-title="Estudi d’imatge cranial" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.8. Avaluació cardíaca</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-8', 'Avaluació cardíaca');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-8');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.8. Avaluació cardíaca</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l158" data-role="touch">
 				<p>
 					<b><span style='color:gray; font-size:120%;'>Electrocardiograma</span></b>
@@ -8185,29 +8447,44 @@
 			</footer>
 		</div>
         
-		<div data-role="view" id="1-5-9" class="contenido" data-title="Estudi d’imatge cranial" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-9" class="contenido" data-init="changetowhite" data-title="Estudi d’imatge cranial" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.9. Altres</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-9', 'Altres');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-9');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.9. Altres</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l159" data-role="touch">
 				<p>
 					<span>Tècniques com la RM espectroscòpica, la
@@ -8228,29 +8505,44 @@
 			</footer>
 		</div>
         
-		<div data-role="view" id="1-5-10" class="contenido" data-title="Estudi d’imatge cranial" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-5-10" class="contenido" data-init="changetowhite" data-title="Estudi d’imatge cranial" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.5.10. Exploracions complementàries segons diagnòstic etiològic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-5-10', 'Exploracions complementàries segons diagnòstic etiològic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-5-10');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.5.10. Exploracions complementàries segons diagnòstic etiològic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l1510" data-role="touch">
 				<p>
 					<span>Amb l’objectiu d’aconseguir un adequat
@@ -8331,29 +8623,44 @@
 			</footer>
 		</div>
         
-		<div data-role="view" id="1-6-1" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-1" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.1. Criteris d’ingrés. ingrés a unitat d’ictus</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-1', 'Criteris d’ingrés. ingrés a unitat d’ictus');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.1. Criteris d’ingrés. ingrés a unitat d’ictus</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l161" data-role="touch">
 				<p>
 					<span>Els pacients amb simptomatologia
@@ -8439,29 +8746,44 @@
 				</div>
 			</footer>
 		</div>
-		<div data-role="view" id="1-6-2" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-2" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.2. Centres terciaris d’ictus</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-2', 'Centres terciaris d’ictus');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.2. Centres terciaris d’ictus</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l162" data-role="touch">
 				<p>
 					<span>Segons el comitè d’experts del <b>Pla
@@ -8621,29 +8943,44 @@
 			</footer>
 		</div>
         
-		<div data-role="view" id="1-6-3" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-3" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.3. Tractament de la fase hiperaguda</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-3', 'Tractament de la fase hiperaguda');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.3. Tractament de la fase hiperaguda</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l163" data-role="touch">
 				<p>
 					<b><span style='color:gray; font-size:120%;'>Mesures generals  </span></b>
@@ -8806,29 +9143,45 @@
 				</div>
 			</footer>
 		</div>
-		<div data-role="view" id="1-6-4" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		
+		<div data-role="view" id="1-6-4" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.4. Tractament de la fase aguda</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-4', 'Tractament de la fase aguda');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.4. Tractament de la fase aguda</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l164" data-role="touch">
 				<p  >
 					<b><span lang=ES-TRAD style='color:gray; font-size:120%;'>Mesures generals </span></b>
@@ -9242,29 +9595,44 @@
 				</div>
 			</footer>
 		</div>
-		<div data-role="view" id="1-6-5" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-5" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.5. Prevenció secundària</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-5', 'Prevenció secundària');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-5');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.5. Prevenció secundària</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l165" data-role="touch">
 				<p>
 					<b><span style='color:gray; font-size:120%;'>Mesures generals  </span></b>
@@ -9530,29 +9898,44 @@
 				</div>
 			</footer>
 		</div>
-		<div data-role="view" id="1-6-6" class="contenido" data-title="Tractament" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-6" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.6. Tractament en situacions especials</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-6', 'Tractament en situacions especials');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-6');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.6. Tractament en situacions especials</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l166" data-role="touch">
 				<p  >
 					<b><span lang=ES-TRAD style='color:gray; font-size:120%;'>Trombofílies</span></b>
@@ -9664,29 +10047,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="1-6-7" class="contenido" data-title="Tractament"  data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="1-6-7" class="contenido" data-init="changetowhite" data-title="Tractament" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">1.6.7. Maneig de les complicacions neurològiques</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#1-6-7', 'Maneig de les complicacions neurològiques');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#1-6-7');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">1.6.7. Maneig de les complicacions neurològiques</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l167" data-role="touch">
 				<p>
 					<span>Per identificar de manera precoç
@@ -9798,29 +10196,44 @@
 				</div>
 			</footer>
 		</div>
-		<div data-role="view" id="2-1" class="contenido" data-title="Atac isquèmic transitori" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="2-1" class="contenido" data-init="changetowhite" data-title="Atac isquèmic transitori" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">2.1. Definició, conceptes bàsics i diagnòstic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#2-1', 'Definició, conceptes bàsics i diagnòstic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#2-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">2.1. Definició, conceptes bàsics i diagnòstic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l21" data-role="touch">
 				<p>
 					<span>L’atac isquèmic transitori (AIT)
@@ -9917,29 +10330,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="2-2" class="contenido" data-title="Atac isquèmic transitori" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="2-2" class="contenido" data-init="changetowhite" data-title="Atac isquèmic transitori" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">2.2. Mecanismes patogènics i tractament</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#2-2', 'Mecanismes patogènics i tractament');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#2-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">2.2. Mecanismes patogènics i tractament</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l22" data-role="touch">
 
 				<p >
@@ -10046,29 +10474,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="2-3" class="contenido" data-title="Atac isquèmic transitori" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="2-3" class="contenido" data-init="changetowhite" data-title="Atac isquèmic transitori" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">2.3. Aits d´alt i baix risc</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#2-3', 'Aits d´alt i baix risc');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#2-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">2.3. Aits d´alt i baix risc</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l23" data-role="touch">
 
 				<p>
@@ -10101,29 +10544,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="2-4" class="contenido" data-title="Atac isquèmic transitori" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="2-4" class="contenido" data-init="changetowhite" data-title="Atac isquèmic transitori" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">2.4. Directrius del Pla Director de la Malaltia Vascular Cerebral</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#2-4', 'Directrius del Pla Director de la Malaltia Vascular Cerebral');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#2-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">2.4. Directrius del Pla Director de la Malaltia Vascular Cerebral</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l24" data-role="touch">
 				<p >
 					<span >L'atac
@@ -10142,29 +10600,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="2-5" class="contenido" data-title="Atac isquèmic transitori" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="2-5" class="contenido" data-init="changetowhite" data-title="Atac isquèmic transitori" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">2.5. Activació del CODI AIT a Urgències (estudis classe III, recomanació nivell B)*</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#2-5', 'Activació del CODI AIT a Urgències (estudis classe III, recomanació nivell B)');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#2-5');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">2.5. Activació del CODI AIT a Urgències (estudis classe III, recomanació nivell B)*</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l25" data-role="touch">
 
 				<p >
@@ -10287,29 +10760,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-1" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-1" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.1. Introducció</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-1', 'Hemorràgia cerebral(Introducció)');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.1. Introducció</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l31" data-role="touch">
 				<p>
 					<span >L’hemorràgia
@@ -10336,29 +10824,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-2" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-2" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.2. Definició, epidemiologia i Pronòstic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-2', 'Definició, epidemiologia i Pronòstic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.2. Definició, epidemiologia i Pronòstic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l32" data-role="touch">
 				<p>
 					<span >L’hemorràgia
@@ -10385,29 +10888,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-3-1" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-3-1" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.3.1. Classificació etiològica de l’hemorràgia cerebral</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-3-1', 'classificació etiològica de l’hemorràgia cerebral');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-3-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.3.1. Classificació etiològica de l’hemorràgia cerebral</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l331" data-role="touch">
 
 				<p>
@@ -10496,29 +11014,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-3-2" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-3-2" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.3.2. Factors de risc</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-3-2', 'Factors de risc');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-3-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.3.2. Factors de risc</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l332" data-role="touch">
 
 				<p>
@@ -10592,29 +11125,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-3-3" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-3-3" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.3.3. Patofisiologia</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-3-3', 'Patofisiologia');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-3-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.3.3. Patofisiologia</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l333" data-role="touch">
 
 				<p>
@@ -10681,29 +11229,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-4" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-4" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.4. Diagnòstic. neuroimatge</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-4', 'Diagnòstic. neuroimatge');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.4. Diagnòstic. neuroimatge</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l34" data-role="touch">
 
 				<p>
@@ -10851,29 +11414,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5. Tractament de la Hic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5', 'Tractament de la Hic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5. Tractament de la Hic</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l35" data-role="touch">
 				<p>
 					<span>El maneig de l’HIC es basa en uns punts clau: </span>
@@ -10917,29 +11495,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-1" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-1" class="contenido" data-init="changetowhite" data-title="Tractament de la Hic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.1. Tractament de la Hic</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-1', 'Tractament de la Hic');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-1');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.1. Maneig urgent</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l351" data-role="touch">
 				<p>
 					<span>L’HIC
@@ -11006,29 +11599,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-2" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-2" class="contenido" data-init="changetowhite" data-title="Tractament de la Hic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.2. Tractament general</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-2', 'Tractament general');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-2');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.2. Tractament general</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l352" data-role="touch">
 				<p>
 					<b><span style="
@@ -11206,29 +11814,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-3" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-3" class="contenido" data-init="changetowhite" data-title="Tractament de la Hic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.3. Tractament de les complicacions</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-3', 'Tractament de les complicacions');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-3');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.3. Tractament de les complicacions</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l353" data-role="touch">
 
 				<p>
@@ -11499,29 +12122,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-4" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-4" class="contenido" data-init="changetowhite" data-title="Tractament de la Hic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.4. Tractament específics</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-4', 'Tractament específics');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-4');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.4. Tractament específics</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l354" data-role="touch">
 
 				<p >
@@ -11705,29 +12343,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-5" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-5" class="contenido" data-init="changetowhite" data-title="Tractament de la Hic" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.5. Hemostàsia</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-5', 'Hemostàsia');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-5');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.5. Hemostàsia</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l355" data-role="touch">
 
 				<p>
@@ -12263,29 +12916,44 @@
 			</footer>
 		</div>
 
-		<div data-role="view" id="3-5-6" class="contenido" data-title="Hemorràgia cerebral" data-layout="layout" data-show="layoutShow" data-transition="slide">
+		<div data-role="view" id="3-5-6" class="contenido" data-init="changetowhite" data-title="Hemorràgia cerebral" data-transition="slide">
 			<header data-role="header">
 				<div data-role="navbar">
 					<span data-role="view-title">
-						<a data-role="backbutton" data-align="left">Enrere</a>
-						<a data-role="button" data-icon="search" data-align="right" data-rel="modalview" href="#modalview-search"> </a>
-						<a data-role="button" data-align="right" data-rel="modalview" href="#modalview-anexo">anexo</a>
+						<a data-role="backbutton" href="#indice" data-align="left">Enrere</a>
+						<a data-role="button" data-align="right" data-rel="modalview" onclick="togglebuscar();" class="BotonBuscar"> </a>
+                        <a data-role="button" data-align="right" data-rel="modalview" onclick="showtooltip();">ANEXO</a>
 					</span>
-				</div>
+			  </div>
+			  
 				<div >
-					<div id="titulo">
-						<h4 style="margin-left: 2%;">3.5.6. Tractament preventiu</h4>
-						<div id="tools">
-							<a data-role="button"  onclick="addFavorito('#3-5-6', 'Tractament preventiu');" data-icon="favorites" data-align="right"></a>
-							<a data-role="button" onclick="highlightSelectedText('#3-5-6');" data-align="right">T</a>
-							<a data-role="button" data-click="disminuirText"data-align="right">-a</a>
-							<a data-role="button" data-click="aumentarText" data-align="right">+A</a>
-						</div>
+					<div class="titulo" style="display:block;">
+						<table id="subt" width="100%">
+                            <tr>
+                            	<td width="50%"><h4 style="margin-left: 2%;">3.5.6. Tractament preventiu</h4></td>
+                            	<td width="50%">
+                            		<div id="tools" >
+                                      <div id="boton_favorito"><img src="kendo/styles/images/icon-favorito.png" class="BotonFavorito"></div>
+							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
+                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
+                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
+							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
+                                      </ul>-->
+									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
+										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
+									  </ul>
+						            </div>
+                            	</td>
+                            </tr>
+						</table>
+						
 					</div>
 
 				</div>
 
 			</header>
+			<div class="buscar-content" style="padding:4px; display:none;"><input id="buscardor" style="padding-left:1%;" type="search" results="0" name="s" placeholder="Cercar..."></div>
 			<div class="lectura"  id="l356" data-role="touch">
 
 				<p>
@@ -12709,6 +13377,7 @@ try{
 			
 			$("#boton_favorito img").toggle(function(){
 			   $(this).attr('src',"kendo/styles/images/icon-favorito-3.png");
+			   $(this).attr('data');
 			   addFavorito('#1-1', 'Introducció. Dades epidemiològiques');
 			}, function(){
 				$(this).attr('src',"kendo/styles/images/icon-favorito.png");

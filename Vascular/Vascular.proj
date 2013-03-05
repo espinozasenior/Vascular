@@ -96,6 +96,8 @@
     <Content Include="styles\atooltip.css" />
     <Content Include="styles\images\.nomedia" />
     <Content Include="styles\images\ar.png" />
+    <Content Include="styles\images\back-2.png" />
+    <Content Include="styles\images\back.png" />
     <Content Include="styles\images\ferrer.png" />
     <Content Include="styles\images\icons.png" />
     <Content Include="styles\images\logo_sociedad.png" />

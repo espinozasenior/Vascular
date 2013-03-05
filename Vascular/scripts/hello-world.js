@@ -101,7 +101,7 @@ function resaltarTexto() {
 		$(this).removeClass('resaltarTexto');
 	});
 	$(".lectura").each(function() {
-		$(this).resaltar(cajaTexto.value, "resaltarTexto");
+		$(this).resaltar(buscador.value, "resaltarTexto");
 	});
 }
 

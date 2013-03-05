@@ -87,6 +87,7 @@
     <Content Include="kendo\styles\images\icono-marcador.png" />
     <Content Include="kendo\styles\images\icono-mas.png" />
     <Content Include="kendo\styles\images\iconoLupa.png" />
+    <Content Include="kendo\styles\images\plus.png" />
     <Content Include="scripts\core.js" />
     <Content Include="scripts\jquery.atooltip.js" />
     <Content Include="scripts\jquery.treeview.js" />
@@ -98,6 +99,8 @@
     <Content Include="styles\images\ferrer.png" />
     <Content Include="styles\images\icons.png" />
     <Content Include="styles\images\logo_sociedad.png" />
+    <Content Include="styles\images\next-2.png" />
+    <Content Include="styles\images\next.png" />
     <Content Include="styles\images\no-selected.png" />
     <Content Include="styles\images\selected.png" />
     <Content Include="styles\images\somazina.png" />

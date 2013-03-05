@@ -1,4 +1,3 @@
-
 /*----Ipadd----*/
 @media only screen and (min-width: 700px) and (max-width: 949px)
 {
@@ -22,7 +21,12 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-     
+    
+    .taulas{
+        display: inline;
+        min-width: 90%;
+    }
+        
         .popup{
 	position: absolute;
     display: none;
@@ -83,7 +87,12 @@
         bottom:5%;
         position: absolute;
 	}
-
+    
+    .taulas{
+        display: inline;
+        min-width: 90%;
+    }
+    
 	#logos img
 	{
 		margin-left: 5%;
@@ -137,6 +146,11 @@
 /*----Androids----*/
 @media only screen and (min-height: 480px) and (max-width: 500px)
 {
+    #red h4{
+		 padding:0px; 
+		 margin:0px;
+		 max-width:85%;
+	}
    
 	#bk-image
 	{
@@ -199,6 +213,12 @@
 @media only screen and (min-device-width: 640px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2)
 {
    
+   #red h4{
+		padding:0px; 
+		 margin:0px;
+		 max-width:85%;
+	}
+   
 	#bk-image
 	{
 		top: 130%;
@@ -258,6 +278,12 @@
 /*--- Iphone4---*/
 @media only screen and (max-height: 480px)
 {
+	#red h4{
+		 padding:0px; 
+		 margin:0px;
+		 max-width:85%;
+	}
+
 	#logos
 	{
 		position: absolute; 
@@ -859,4 +885,61 @@ padding:0.5%;
 .km-blackberry .km-view .km-navbar .km-view-title > *
 {
 	color: rgb(255, 255, 255);
+}
+
+
+.BotonNext{
+	background: url('images/next.png') no-repeat !important;
+	background-size: 100%;
+    background-repeat: no-repeat;
+    border: none !important;
+    width: 27px;
+	height:27px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    -webkit-box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    float:right;
+    cursor: pointer;
+}
+
+.BotonNext:active{
+	background: url('images/next-2.png') no-repeat !important;
+	background-size: 100%;
+    background-repeat: no-repeat;
+    border: none !important;
+    width: 27px;
+	height:27px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    -webkit-box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    float:right;
+    cursor: pointer;
+}
+
+.BotonPrev{
+    background: url('images/back.png') no-repeat !important;
+	background-size: 100%;
+    background-repeat: no-repeat;
+    border: none !important;
+    width: 27px;
+	height:27px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    -webkit-box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    float:left;
+    cursor: pointer;
+}
+
+.BotonPrev:active{
+    background: url('images/back-2.png') no-repeat !important;
+	background-size: 100%;
+    background-repeat: no-repeat;
+    border: none !important;
+    width: 27px;
+	height:27px;
+    background-color: rgba(255, 255, 255, 0) !important;
+    box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    -webkit-box-shadow: inset 0 0 0 0px rgba(0,0,0,0.3) !important;
+    float:left;
+    cursor: pointer;
 }

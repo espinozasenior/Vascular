@@ -13148,6 +13148,8 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 
 			</div>
 </div>
+    
+    <div id="fade" class="overlay" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="display: none;"></div>
 		<!--   -------------------------- FIN LIBRO -------------  -->
 
 		<script>
@@ -13212,12 +13214,15 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 				closeModalViewListAnexos();
 				var content = $(anexo).children().eq(1).html();
 				$("#modalview-anexos").children().eq(1).children().eq(1).children().html(content);
-				$("#modalview-anexos").kendoMobileModalView("open");				
+				$("#modalview-anexos").kendoMobileModalView("open");
+                document.getElementById('light').style.display='block';
+                document.getElementById('fade').style.display='block';
 			}
 			
 			function backmodal(){
 				closeModalViewAnexos();
 				$("#modalview-list-anexos").kendoMobileModalView("open");
+                document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block';
 			}
 			
 			

@@ -6,7 +6,7 @@
     <AppIdentifier>com.hostienda.vascular</AppIdentifier>
     <ProjectName>Vascular</ProjectName>
     <IsRunnable>true</IsRunnable>
-    <TemplateAppName>Cordova220</TemplateAppName>
+    <TemplateAppName>Cordova240</TemplateAppName>
     <AndroidPermissions>android.permission.READ_PHONE_STATE;android.permission.INTERNET;android.permission.READ_CONTACTS;android.permission.WRITE_EXTERNAL_STORAGE;android.permission.ACCESS_NETWORK_STATE</AndroidPermissions>
     <DeviceOrientations>Portrait</DeviceOrientations>
     <iOSStatusBarStyle>Default</iOSStatusBarStyle>
@@ -156,7 +156,6 @@
       <Platform>Android</Platform>
       <TargetName>cordova.js</TargetName>
     </Content>
-    <Content Include="styles\style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

@@ -3,17 +3,20 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // PhoneGap is ready
 function onDeviceReady() {
-	startConfirm();
+	setTimeout(function() {
+		app.navigate("#indice"); // Do something after 2 seconds
+		}, 2000);
+	//startConfirm();
 }
 
 function onConfirm(button) {
 	if (button == true) {
 		setTimeout(function() {
 			app.navigate("#indice"); // Do something after 2 seconds
-		}, 2000);
+			}, 2000);
 	}
 	else {
-        
+		
 		navigator.app.exitApp();
 	}
 }
@@ -24,11 +27,11 @@ function go(id) {
 
 function startConfirm() {
 	navigator.notification.confirm(
-		'Aqui según respùesta de si o no.', // message
-		onConfirm, // callback to invoke with index of button pressed
-		'¿Es usted profesional satnitario?', // title
-		'Si, No'          // buttonLabels
-		);
+	'Aqui según respùesta de si o no.', // message
+	onConfirm, // callback to invoke with index of button pressed
+	'¿Es usted profesional satnitario?', // title
+	'Si, No'          // buttonLabels
+	);
 }
 
 function fail(error) {
@@ -36,45 +39,48 @@ function fail(error) {
 }
 
 //ListView Filter Anexo
+
 (function ($) {
-	jQuery.expr[':'].Contains = function(a, i, m) {
-		return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
-	};
-            
-	function filterList(header, list) {
+	// custom css expression for a case-insensitive contains()
+	jQuery.expr[':'].Contains = function(a,i,m){
+		return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+		};
+	
+	function filterList(header, list) { 
+		// header is any element, list is an unordered list
+		// create and add the filter form to the header
 		var form = $("<form>").attr({"class":"filterform","action":"#"}),
-		input = $("<input>").attr({"class":"filterinput","type":"text", "placeholder":"FILTER"});
+		input = $("<input>").attr({"class":"filterinput","type":"search","name":"s","result":"0","id":"headeranexoss", "style":"padding-left:1%;", "placeholder":"Cercar..." });
+		
 		$(form).append(input).appendTo(header);
-  
+		
 		$(input)
-		.change(function () {
+		.change( function () {
 			var filter = $(this).val();
-			if (filter) {
-       
+			if(filter) {
+				
 				$matches = $(list).find('a:Contains(' + filter + ')').parent();
 				$('li', list).not($matches).slideUp();
 				$matches.slideDown();
-             
-			}
-			else {
+				
+				} else {
 				$(list).find("li").slideDown();
 			}
 			return false;
-		})
-		.keyup(function () {
+			})
+		.keyup( function () {
+			// fire the above change event after every letter
 			$(this).change();
-		});
+			});
 	}
-  
+	
+	
+	//ondomready
 	$(function () {
-		filterList($("#headeranexos"), $("#list-anexos"));
-	});
-}(jQuery));
-
-function mostrar_somiza_fixed() {
-	$("#somiza-fixed").attr({"display":"block"});
-}
-
+		filterList($("#form"), $("#list-anexoss"));
+		filterList($("#form-buscador"), $("#list-anexos"));
+		});
+	}(jQuery));
 //Cerrar app
 function Exit() {
 	navigator.app.exitApp();
@@ -87,8 +93,8 @@ function closeModalViewSearch() {
 function closeModalViewAnexos() {
 	$("#modalview-anexos").kendoMobileModalView("close");
 }
-function closeModalViewResalto() {
-	$("#modalview-resalto").kendoMobileModalView("close");
+function closeModalViewListAnexos() {
+	$("#modalview-list-anexos").kendoMobileModalView("close");
 }
 
 //Resaltar texto buscado
@@ -96,43 +102,62 @@ function borrarBusqueda() {
 	$('span').removeClass('resaltarTexto');
 }
 
-function resaltarTexto() {
+function resaltarTexto(id,texto) {
+	
 	$(".resaltarTexto").each(function() {
-		$(this).removeClass('resaltarTexto');
-	});
-	$(".lectura").each(function() {
-		$(this).resaltar(buscador.value, "resaltarTexto");
-	});
+		$(this).contents().unwrap();
+		});
+	
+	if((texto!="") && texto!=" "){
+		
+		$("#"+id+" .lectura").each(function() {
+			$(this).resaltar(texto, "resaltarTexto",id);
+			});
+		
+	}
+}
+
+function highlight(original, searchterms) {
+	$(".highlight").each(function() {
+		$(this).contents().unwrap();
+		});
+	
+	var terms = searchterms.split(" ");
+	var output = original;
+	
+	for (var i = 0; i < terms.length; i++) {
+		var term = terms[i];
+		if (term.length <= 3) {
+			// replace whole word only
+			var re = new RegExp("\\b" + term + "\\b", "gi");
+			output = output.replace(re, "<span class=\"highlight\">" + term + "</span>");
+		}
+		else {
+			// replace any part of word
+			var re = new RegExp(term, "gi");
+			output = output.replace(re , "<span class=\"highlight\">" + term + "</span>");
+		}
+	}
+	
+	return output;
 }
 
 jQuery.fn.extend({
-    resaltar: function(busqueda, claseCSSbusqueda){
-        var regex = new RegExp("(<[^>]*>)|("+ busqueda.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', 'ig');
-        var nuevoHtml=this.html(this.html().replace(regex, function(a, b, c){
-            return (a.charAt(0) == "<") ? a : "<span class=\""+ claseCSSbusqueda +"\">" + c + "</span>";
-        }));
-        return nuevoHtml;
-    }
-});
-
-jQuery.fn.extend({
-    resaltar: function(busqueda, claseCSSbusqueda, id){
-        var regex = new RegExp("(<[^>]*>)|("+ busqueda.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', 'ig');
-        var nuevoHtml=this.html(this.html().replace(regex, function(a, b, c){
-            return (a.charAt(0) == "<") ? a : "<span class=\""+ claseCSSbusqueda +"\" data=\""+ id +"\">" + c + "</span>";
-        }));
-        console.log("html: "+nuevoHtml);
-        return nuevoHtml;
-    }
-});
-
-
+	resaltar: function(busqueda, claseCSSbusqueda, id){
+		var regex = new RegExp("(<[^>]*>)|("+ busqueda.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', 'ig');
+		var nuevoHtml=this.html(this.html().replace(regex, function(a, b, c){
+			return (a.charAt(0) == "<") ? a : "<span class=\"resaltarTexto\" data=\""+ id +"\">" + c + "</span>";
+			}));
+		console.log("html: "+nuevoHtml);
+		return nuevoHtml;
+	}
+	});
 // Resetear al tamaño original
 var originalFontSize = $('html').css('font-size');
 
 $(".resetFont").click(function() {
 	$('.lectura').css('font-size', originalFontSize);
-});
+	});
 
 // Disminuir tamaño fuente
 function disminuirText(e) {

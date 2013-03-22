@@ -21,6 +21,26 @@ function onConfirm(button) {
 	}
 }
 
+function restoreSelection() {
+    rangy.init();
+    rangy.restoreSelectionFromCookie();
+    alert("buuuu");
+}
+
+var selectionSaved = false;
+
+function saveSelection() {
+    if (!selectionSaved) {
+        rangy.saveSelectionCookie();
+        selectionSaved = true;
+    }
+}
+
+window.onload = restoreSelection;
+window.onbeforeunload = saveSelection;
+window.onunload = saveSelection
+
+
 function go(id) {
 	app.navigate(id);
 }

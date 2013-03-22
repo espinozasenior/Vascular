@@ -114,7 +114,6 @@
     <Content Include="scripts\rangy-cssclassapplier.js" />
     <Content Include="scripts\rangy-selectionsaverestore.js" />
     <Content Include="scripts\rangy-serializer.js" />
-    <Content Include="scripts\rengy.js" />
     <Content Include="styles\images\.nomedia" />
     <Content Include="styles\images\1362742668_circle.png" />
     <Content Include="styles\images\ar.png" />

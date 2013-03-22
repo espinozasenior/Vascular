@@ -11,13 +11,13 @@
 		<script type="text/javascript" src="scripts/highlight.js"></script>
         <script type="text/javascript" src="scripts/rangy-core.js"></script>
 		<script type="text/javascript" src="scripts/rangy-cssclassapplier.js"></script>
-		<script type="text/javascript" src="scripts/rangy-selectionsaverestore.js"></script>
-		<script type="text/javascript" src="scripts/rangy-serializer.js"></script>
+        <script type="text/javascript" src="scripts/rangy-selectionsaverestore.js"></script>
+        <script type="text/javascript" src="scripts/rangy-serializer.js"></script>
 		<script type="text/javascript" src="scripts/jquery.treeview.js"></script>
 		<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 		<link href="styles/main.css" rel="stylesheet" />
 	</head>
-	<body>
+	<body onload="SS.initHighlight();">
         <div id="somiza-fixed" class="bottom" style="text-align: center; display:none;">
 			<img src="styles/images/somazina.png">
 		</div>
@@ -632,11 +632,7 @@ ple coneixement de les possibilitats que ens ofereix la medicina actual.&nbsp;</
                             		<div id="tools" >
                                       
 							          <div id="boton_marcador"><img src="kendo/styles/images/icon-marcador.png" class="BotonMarcador"></div>           
-                                       <!--<ul data-role="buttongroup" data-index="0" style="margin-top: 6px;">
-                                        <li data-role="button" data-click="aumentarText" data-align="right" class="BotonMas"></li>
-							            <li data-role="button" data-click="disminuirText" data-align="right" class="BotonMenor"></li>
-                                      </ul>-->
-									  <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
+                                      <ul data-role="buttongroup" data-index="0" class="km-buttongroup" style="margin-top: 7px;">
 										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="aumentarText" class="km-button"><span class="km-text">+Aa</span></li>
 										<li style="font-size: 0.8em; float: left;" data-role="button" data-click="disminuirText" class="km-button"><span class="km-text">-Aa</span></li>						
 									  </ul>
@@ -688,6 +684,8 @@ ple coneixement de les possibilitats que ens ofereix la medicina actual.&nbsp;</
 						Xavier Ustrell<br>
                         M. Àngels Font<br></h3>
 
+					</p>
+
 				</div>
                             <h3 style="font-weight:normal;"><span>Proyecto esponsorizado por:</span> </h3>
                             <h3>FERRER INTERNACIONAL, S.A.</h3> 
@@ -719,7 +717,7 @@ ple coneixement de les possibilitats que ens ofereix la medicina actual.&nbsp;</
 					</span>
 				</div>
 			</header>			
-			<div data-role="touch" id="wrap">
+			<div data-role="touch">
 				
 				<ul id="list-anexos" data-role="listview" data-style="inset">
 					<li>
@@ -9036,7 +9034,7 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
                                     <span>—Bona situació mèdica, funcional i cognitiva prèvies a l’ictus (RACOM negatiu)</span>
                                 </p>
                                 <p>
-                                    <span>—8 hores d’evolució dels símptomes</span>
+                                    <span>—<8 hores d’evolució dels símptomes</span>
                                 </p>  
                                 <p>
                                     <span>—No hi ha límit d’edat</span>
@@ -10065,7 +10063,8 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 				</p>
 
 			
-					<span lang=ES-TRAD>&nbsp;</span>				
+					<span lang=ES-TRAD>&nbsp;</span>
+				</p>
 			</div>
            <footer data-role="footer">
 				<div data-role="navbar">
@@ -11068,7 +11067,7 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 					<span >L’hemorràgia cerebral és un greu problema de salut pública amb incidències anuals de 10-30 casos per 100 000 habitants que ocasiona un total de 2 milions de pacients, xifra que representa un 10-15%, dels 15 milions d’ictus que es produeixen anualment al món. Les admissions hospitalàries per hemorràgia cerebral (HIC) han augmentat un 18% en els darrers 10 anys probablement per l’envelliment poblacional, per la manca de control de la hipertensió arterial i per un ús en augment d’agents antitrombòtics. La incidència d’HIC augmenta exponencialment quan augmenta l’edat, i es doblen els índexs cada 10 anys a partir dels 35 anys d’edat.</span>
 				</p>
                                 <p>
-                                    <span>La mortalitat de les HIC als 3 mesos és dels 34% en estudis hospitalaris, però augmenta fins a un 52% en estudis comunitaris. La mortalitat als 7 dies és del 31%, del 59% a l’any i del 82% als 10 anys. La mortalitat als 30 dies s’ha relacionat amb la grandària i amb la localització en igualtat de volum de lesió. Així amb volums 30cm3 la mortalitat de l’HIC profunda és del 23% enfront del 7% de l’HIC lobar i del 57% de l’hemorràgia cerebel·losa. Amb volums entre 30 i 60cm3 la mortalitat de l’HIC profunda és del 64%, del 60% per l’HIC lobar i del 75% per la cerebel·losa. Amb HIC amb volums >60cm3 la mortalitat de l’HIC profunda arriba al 93% enfront del 71% de les lobars.</span>
+                                    <span>La mortalitat de les HIC als 3 mesos és dels 34% en estudis hospitalaris, però augmenta fins a un 52% en estudis comunitaris. La mortalitat als 7 dies és del 31%, del 59% a l’any i del 82% als 10 anys. La mortalitat als 30 dies s’ha relacionat amb la grandària i amb la localització en igualtat de volum de lesió. Així amb volums <30cm3 la mortalitat de l’HIC profunda és del 23% enfront del 7% de l’HIC lobar i del 57% de l’hemorràgia cerebel·losa. Amb volums entre 30 i 60cm3 la mortalitat de l’HIC profunda és del 64%, del 60% per l’HIC lobar i del 75% per la cerebel·losa. Amb HIC amb volums >60cm3 la mortalitat de l’HIC profunda arriba al 93% enfront del 71% de les lobars.</span>
                                 </p>
                                 <p>
                                     <span>Únicament un 21-38% dels pacients amb HIC són independents als 6 mesos. El tractament en unitats intensives especializades neurològiques/neuroquirúrgiques ha mostrat una reducció de la mortalitat enfront de les unitats de cures intensives generals. El volum i l’escala de Glasgow a l’admissió, l’edat>80 anys, l’HIC infratentorial i la presència de sang intraventricular han estat descrits com a predictors independents de mortalitat als 30 dies, tot i que el factor independent aïllat predictiu de supervivència més important és la implantació d’ordres de no-ressuscitació.</span>
@@ -13100,10 +13099,10 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 			
 				<div id="list-popup"><ul id="list-anexoss" data-role="listview" data-style="inset">
 					<li>
-						<a onclick="showtomodal('#A1');" >Trombolítics</a>
+						<a href="javascript:void(0)" onclick="showtomodal('#A1');" >Trombolítics</a>
 					</li>
 					<li>
-						<a onclick="showtomodal('#A2');">Neuroprotectors </a>
+						<a href="javascript:void(0)" onclick="showtomodal('#A2');">Neuroprotectors </a>
 					</li>
 					<li>
 						<a onclick="showtomodal('#A3');">Antihipertensius</a>
@@ -13148,8 +13147,6 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 
 			</div>
 </div>
-    
-    <div id="fade" class="overlay" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" style="display: none;"></div>
 		<!--   -------------------------- FIN LIBRO -------------  -->
 
 		<script>
@@ -13161,11 +13158,23 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 			$$("#tab-anex").attr('src', 'kendo/styles/images/icon-anexo-' + anex + '.png');
 			$$("#tab-lang").attr('src', 'kendo/styles/images/icon-idiomas-' + idio + '.png');
 			
-            var cssApplier;
+            var SS = {
+
+              initHighlight : function() {
+                rangy.init();
+                var cssClassApplierModule = rangy.modules.CssClassApplier;  
+                // Stupid safari hack for when cached scripts don't run in the right order
+                if ( ! rangy.createCssClassApplier ) {
+	                setTimeout("SS.cssApplier = rangy.createCssClassApplier('highlight');", 1000);
+	                return
+                }
+                    this.cssApplier = rangy.createCssClassApplier("highlight");
+                  }
+            }
+            
 						
 			function initial() {
-			rangy.init();
-        	cssApplier = rangy.createCssClassApplier("highlight", {normalize: true});
+			
 			changetored();
 				db = openDatabase("favoritos", "0.1", "Base de datos la app vascular", 200000);
 				if (db) {
@@ -13214,15 +13223,12 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 				closeModalViewListAnexos();
 				var content = $(anexo).children().eq(1).html();
 				$("#modalview-anexos").children().eq(1).children().eq(1).children().html(content);
-				$("#modalview-anexos").kendoMobileModalView("open");
-                document.getElementById('light').style.display='block';
-                document.getElementById('fade').style.display='block';
+				$("#modalview-anexos").kendoMobileModalView("open");				
 			}
 			
 			function backmodal(){
 				closeModalViewAnexos();
 				$("#modalview-list-anexos").kendoMobileModalView("open");
-                document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block';
 			}
 			
 			
@@ -13428,7 +13434,7 @@ text-indent:-18.0pt;line-height:normal;text-autospace:none"><span lang="ES" styl
 			
 			$("#boton_marcador img").toggle(function(){
 			   $(this).attr('src',"kendo/styles/images/icon-marcador-down.png");
-			   cssApplier.toggleSelection();
+			   SS.cssApplier.toggleSelection();
 			}, function(){
 				$(this).attr('src',"kendo/styles/images/icon-marcador.png");
 			});
